@@ -1,15 +1,15 @@
 .appWrapper {
     width: 100%;
-    min-height: 100vh;
+    min-height: auto;
     background-image: url('/images/global-bg.png');
     background-position: top left;
-    background-size: 100vw 100vh;
+    background-size: cover;
     background-repeat: repeat;
     background-blend-mode: normal;
     display: flex;
     flex-direction: column;
     align-items: center;
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
 .contentContainer {
@@ -25,3 +25,16 @@
         align-items: flex-end;
     }
 }
+
+@media (max-width: 768px) {
+  .appWrapper {
+    min-height: auto;
+    background-size: cover;
+  }
+  .contentContainer {
+    align-items: flex-start;
+    width: 100%;
+    padding: 0 1rem;
+  }
+}
+
