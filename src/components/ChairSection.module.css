@@ -1,0 +1,145 @@
+.chairWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    padding: 0 24px 32px;
+    /* Default mobile padding from legacy? Legacy just says #Mobile has padding 0, Container_1 uses flex default. */
+    /* Container_1 (Mobile) has gap 347px between sections. */
+    /* We need to handle mobile layout constraints here. */
+    /* Mobile legacy: Experience #Experience padding 64px 24px. */
+    /* Text #_9_85 and Chair #chair_2 are DIRECT CHILDREN of Container_1 in Mobile too? */
+    /* Wait, let's verify Legacy Mobile structure. */
+}
+
+/* 
+Legacy Mobile:
+<div id="Container_1">
+  <div id="Intro">...</div>
+  <div id="Interests">...</div>
+  <div id="Experience">...</div>
+  <span id="_9_85">take a seat...</span>
+  <div id="chair_2">...</div>
+</div>
+Container_1 has align-items: end. 
+So in Mobile, they align END (Right)??
+But text-align is left?
+Let's check #_9_85 legacy mobile css.
+#_9_85: text-align: left.
+BUT parent Container_1 has align-items: end.
+So the 351px width block is aligned to the right. Text inside is left.
+Wait, if block matches width of container? 
+Container_1 `width: 100%`.
+Mobile default is flex-col.
+If `align-items: end`, items align right.
+So "take a seat" is on the right?
+Legacy screenshot or checking coordinate?
+`#chair_2` width auto. height 375px. 
+*/
+
+.footerText {
+    width: 100%;
+    max-width: 351px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 1.2;
+    letter-spacing: -0.8px;
+    color: #fffce1;
+    text-align: left;
+    margin-bottom: 24px;
+
+    /* To match flow? gap? */
+}
+
+.footerLinks {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 24px;
+    margin-top: 16px;
+    z-index: 10;
+    width: 100%;
+}
+
+.footerLink {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.1rem;
+    color: #fffce1;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    text-transform: lowercase;
+}
+
+.footerLink:hover {
+    color: #ffffff;
+}
+
+.chair {
+    aspect-ratio: 0.92;
+    width: auto;
+    height: 375px;
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.chairImg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    /* Default */
+    object-position: top;
+    /* Focus on top */
+    object-position: 50% 20%;
+    /* X% Y% coordinates */
+
+    /* Legacy Mobile had transform: translate(15px) scaleX(1.09) */
+    /* If user complained about skew, maybe remove it? Or keep it for chair? User said "chair img is also in the wrong place", didn't say skew. */
+    /* I'll remove skew to be safe, or just keep it simple. */
+}
+
+@media (min-width: 1280px) {
+    .chairWrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0 120px 40px;
+    }
+
+    .footerText {
+        width: 1162px;
+        font-size: 48px;
+        letter-spacing: -1px;
+        text-align: left;
+        margin-bottom: 24px;
+    }
+
+    .chair {
+        aspect-ratio: 1;
+        height: 821px;
+        margin-left: 400px;
+    }
+
+    .footerLinks {
+        margin-top: 20px;
+        gap: 40px;
+    }
+
+    .footerLink {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .chair {
+        height: 280px; /* scales down the width proportionally to avoid horizontal scroll */
+    }
+    .footerText {
+        font-size: 32px; /* Smaller text for mobile */
+    }
+}

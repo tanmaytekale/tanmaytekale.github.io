@@ -1,0 +1,142 @@
+.introWrapper {
+    /* Mobile #Intro */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.heroSub {
+    /* Mobile #Hero */
+    display: flex;
+    flex-flow: row;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    padding: 80px 24px 56px;
+    background-color: #71bc200d;
+    gap: 32px;
+}
+
+.header {
+    /* Mobile #_9_58 */
+    flex-grow: 1;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 64px;
+    line-height: 1.1;
+    letter-spacing: -1.6px;
+    color: #fffce1;
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+.feature {
+    /* Mobile #Feature */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    padding: 0 24px 64px;
+    background-color: #71bc200d;
+    gap: 48px;
+}
+
+.imageContainer {
+    /* Mobile #Image */
+    aspect-ratio: 1.33;
+    border-radius: 16px;
+    width: 100%;
+    height: auto;
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.imageInner {
+    /* Mobile #__9 */
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 16px;
+}
+
+.image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.textContainer {
+    /* Mobile #Text_0 */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 16px;
+    width: 100%;
+    /* Changed fixed height to auto to prevent text overlap */
+    height: auto;
+}
+
+.subHeader {
+    /* Mobile #_9_62 */
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 1.2;
+    letter-spacing: -0.7px;
+    color: #fffce1;
+}
+
+.paragraph {
+    /* Mobile #_9_63 */
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1.45;
+    letter-spacing: -0.1px;
+    color: #fffce1;
+    white-space: pre-wrap;
+}
+
+@media (min-width: 1280px) {
+    .introWrapper {
+        /* Desktop #Intro_0 */
+        height: 950px;
+    }
+
+    .heroSub {
+        /* Desktop #Hero_0 */
+        padding: 120px 120px 80px;
+        gap: 0px;
+    }
+
+    .feature {
+        /* Desktop #Feature_0 */
+        flex-flow: row;
+        justify-content: center;
+        align-items: center;
+        padding: 0 120px 120px;
+        gap: 185px;
+        /* grid-column-gap */
+    }
+
+    .imageContainer {
+        /* Desktop #Image_0 */
+        aspect-ratio: 1.1;
+        width: auto;
+        height: 428.9px;
+    }
+
+    .textContainer {
+        /* Desktop #Text_2 */
+        width: 400px;
+        height: auto;
+        /* not specified fixed height in desktop CSS, purely content based? */
+        gap: 24px;
+    }
+}

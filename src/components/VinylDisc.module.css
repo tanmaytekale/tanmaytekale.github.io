@@ -1,0 +1,33 @@
+.container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+}
+
+.vinyl {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+    /* Let clicks pass through if needed, or handle on container */
+}
+
+.cover {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 45%;
+    /* Adjust based on the hole size of 'vinyl.png' */
+    height: 45%;
+    object-fit: cover;
+    border-radius: 50%;
+    z-index: 1;
+}

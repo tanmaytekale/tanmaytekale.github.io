@@ -1,0 +1,49 @@
+.marqueeContainer {
+    width: 100%;
+    overflow: hidden;
+    padding: 2rem 0;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    position: relative;
+}
+
+.marqueeRow {
+    display: flex;
+    width: max-content;
+    white-space: nowrap;
+    align-items: center;
+}
+
+.skillItem {
+    font-family: 'Alfa Slab One', cursive;
+    font-size: 3rem;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.4);
+    text-transform: uppercase;
+    padding: 0 2rem;
+    transition: all 0.3s ease;
+    cursor: default;
+}
+
+.skillItem:hover {
+    color: #fff;
+    -webkit-text-stroke: 0px;
+    transform: scale(1.1);
+}
+
+.separator {
+    color: #cc0000;
+    font-size: 2.5rem;
+    -webkit-text-stroke: 0px;
+}
+
+@media (max-width: 768px) {
+    .skillItem {
+        font-size: 1.8rem;
+    }
+    .separator {
+        font-size: 1.8rem;
+    }
+}

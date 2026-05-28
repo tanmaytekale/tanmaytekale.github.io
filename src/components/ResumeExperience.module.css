@@ -1,0 +1,146 @@
+.wrapper {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url('/radical-creativity.github.io/images/grind-bg.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    padding: 15vh 5vw;
+}
+
+.centeredTextContainer {
+    font-family: 'M PLUS Rounded 1c', 'Alfa Slab One', cursive; 
+    color: #fffce1; 
+    text-align: center;
+    margin-bottom: 10vh;
+}
+
+.header {
+    font-size: 6rem;
+    margin: 0;
+    text-transform: lowercase;
+    text-shadow: 0 10px 30px rgba(0,0,0,0.5); /* Helps it pop against the sky */
+}
+
+.cardsContainer {
+    width: 100%;
+    max-width: 1000px;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.card {
+    /* Clean, sleek dark UI glass (Chrome OS style) */
+    background: rgba(32, 33, 36, 0.75); /* Deep clean grey */
+    backdrop-filter: blur(20px) saturate(120%);
+    -webkit-backdrop-filter: blur(20px) saturate(120%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+    padding: 3rem;
+    color: #ffffff; /* White text for contrast */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.card:hover {
+    background: rgba(40, 42, 45, 0.85);
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+}
+
+.title {
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-size: 2.5rem;
+    margin: 0 0 0.5rem 0;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+}
+
+.companyDate {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 0 0 2rem 0;
+    color: #ffcc00; /* Reverted back to the yellow tint */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 1rem;
+}
+
+.date {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.7); /* Light grey for date */
+}
+
+.pointsList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.point {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.15rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    color: rgba(255, 255, 255, 0.9); /* White text for readability */
+    display: flex;
+    gap: 15px;
+}
+
+.arrow {
+    font-weight: bold;
+    color: #ffcc00; /* Yellow accent */
+}
+
+@media (max-width: 768px) {
+    .wrapper {
+        padding: 10vh 5vw;
+    }
+    .header { 
+        font-size: 3.5rem; 
+    }
+    .card { 
+        padding: 1.5rem; 
+        border-radius: 16px;
+    }
+    .title { 
+        font-size: 1.8rem; 
+    }
+    .companyDate { 
+        flex-direction: column; 
+        align-items: flex-start; 
+        gap: 0.5rem; 
+        font-size: 1rem;
+    }
+    .point { 
+        font-size: 0.95rem; 
+        gap: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header { 
+        font-size: 2.8rem; 
+    }
+    .card { 
+        padding: 1.25rem; 
+    }
+    .title { 
+        font-size: 1.5rem; 
+    }
+    .companyDate { 
+        font-size: 0.9rem;
+    }
+    .point { 
+        font-size: 0.85rem; 
+    }
+}

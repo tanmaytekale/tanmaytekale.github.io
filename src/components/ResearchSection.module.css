@@ -1,0 +1,160 @@
+.wrapper {
+    width: 100%;
+    /* background-color: #000; Removed to show image */
+    background-image: url('/radical-creativity.github.io/images/research-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Keeping parallax feel */
+    color: #fffce1;
+    padding: 15vh 5vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header {
+    font-family: 'M PLUS Rounded 1c', 'Alfa Slab One', cursive; /* Updated font */
+    font-size: 6rem;
+    margin: 0 0 10vh 0;
+    text-transform: lowercase;
+    color: #cc0000;
+}
+
+.accordionContainer {
+    width: 100%;
+    max-width: 1000px;
+    display: flex;
+    flex-direction: column;
+    /* Added glassmorphism backplate to ensure readability over the new background */
+    background: rgba(10, 10, 10, 0.6);
+    backdrop-filter: blur(12px);
+    border-radius: 12px;
+    padding: 0 2rem;
+}
+
+.accordionItem {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+.accordionItem:first-child {
+    border-top: none; /* First item doesn't need top border inside the container */
+}
+
+.accordionItem:last-child {
+    border-bottom: none;
+}
+
+.accordionHeader {
+    width: 100%;
+    padding: 2.5rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    text-align: left;
+    transition: color 0.3s ease;
+}
+
+.accordionHeader:hover {
+    color: #cc0000;
+}
+
+.title {
+    font-family: 'M PLUS Rounded 1c', 'Alfa Slab One', cursive; /* Updated font */
+    font-size: 2.5rem;
+    margin: 0;
+    line-height: 1.1;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    padding-right: 20px;
+}
+
+.icon {
+    font-family: 'Inter', sans-serif;
+    font-size: 3rem;
+    font-weight: 300;
+    line-height: 1;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), color 0.3s ease;
+}
+
+.iconOpen {
+    transform: rotate(45deg);
+    color: #cc0000;
+}
+
+/* CSS Grid trick for buttery smooth height transitions */
+.accordionContentWrapper {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.accordionContentWrapperOpen {
+    grid-template-rows: 1fr;
+}
+
+.accordionContent {
+    overflow: hidden;
+    min-height: 0; /* Critical for CSS Grid transition to collapse */
+}
+
+.contentInner {
+    padding-bottom: 3rem;
+    padding-top: 1rem;
+}
+
+.publisher {
+    font-family: 'M PLUS Rounded 1c', 'Inter', sans-serif; /* Updated font */
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #ffcc00;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 1.5rem;
+    display: inline-block;
+    border-bottom: 1px solid rgba(255, 204, 0, 0.5);
+    padding-bottom: 0.5rem;
+}
+
+.description {
+    font-family: 'Inter', sans-serif; /* Kept body text legible */
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 800px;
+    margin: 0;
+}
+
+.paperLink {
+    color: #ffd54f;
+    text-decoration: none;
+    font-weight: 700;
+    border-bottom: 1px solid rgba(255, 213, 79, 0.3);
+    padding-bottom: 1px;
+    margin-left: 8px;
+    transition: all 0.3s ease;
+    display: inline-block;
+    font-size: 1rem;
+    text-transform: lowercase;
+}
+
+.paperLink:hover {
+    color: #ffffff;
+    border-bottom-color: #ffffff;
+}
+
+@media (max-width: 768px) {
+    .header { font-size: 3rem; }
+    .accordionContainer { padding: 0 1rem; }
+    .title { font-size: 1.25rem; padding-right: 10px; }
+    .accordionHeader { padding: 1.2rem 0; }
+    .contentInner { padding-bottom: 1.5rem; }
+    .icon { font-size: 1.5rem; }
+    .description { font-size: 1rem; }
+    .publisher { font-size: 1rem; }
+}
