@@ -2,7 +2,8 @@
     position: fixed;
     top: 0;
     left: 0;
-    height: 100vh;
+    /* svh = small viewport height: stays fixed when mobile browser chrome shows/hides */
+    height: 100svh;
     z-index: 1000;
     display: flex;
     align-items: center;
@@ -217,7 +218,8 @@
         top: 0;
         transform: none;
         width: 100vw;
-        height: 100dvh;
+        /* svh: stays constant when mobile address bar shows/hides */
+        height: 100svh;
         border-radius: 0;
         opacity: 0;
         visibility: hidden; /* Prevent blocking interaction when closed */
