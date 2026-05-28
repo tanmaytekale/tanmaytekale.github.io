@@ -26,7 +26,7 @@ const LandingHero: React.FC = () => {
             <div className={styles.deviceFrame} ref={deviceRef}>
                 <div className={styles.deviceImageContainer}>
                     <img
-                        src="/radical-creativity.github.io/images/device-frame.jpg"
+                        src="/images/device-frame.jpg"
                         alt="Device frame"
                         className={styles.deviceImage}
                     />

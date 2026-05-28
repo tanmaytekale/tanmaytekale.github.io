@@ -39,7 +39,7 @@ const IntroSection: React.FC = () => {
                 <div className={styles.imageContainer}>
                     <div className={styles.imageInner}>
                         <img
-                            src="/radical-creativity.github.io/images/profile-feature.png"
+                            src="/images/profile-feature.png"
                             alt="Feature"
                             className={styles.image}
                         />

@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://tanmaytekale.github.io/radical-creativity.github.io/",
+  "homepage": "https://tanmaytekale.github.io/",
   "scripts": {
     "dev": "vite",
     "predeploy": "npm run build",

@@ -10,7 +10,7 @@ const CollapseOfCapitalism = lazy(() => import('./pages/CollapseOfCapitalism'));
 
 function App() {
   return (
-    <Router basename="/radical-creativity.github.io">
+    <Router>
       <div className={styles.appWrapper}>
         <Suspense fallback={null}>
           <Gramophone />

@@ -36,19 +36,19 @@ const InterestsSection: React.FC = () => {
                 <div className={styles.imageContainer1}>
                     <div className={styles.imageInner1}>
                         {/* Image 1 had NO object-fit in legacy, so it uses .img (stretched) */}
-                        <img src="/radical-creativity.github.io/images/gallery-1.jpg" alt="Gallery 1" className={styles.img} loading="lazy" />
+                        <img src="/images/gallery-1.jpg" alt="Gallery 1" className={styles.img} loading="lazy" />
                     </div>
                 </div>
                 <div className={styles.imageContainer2}>
                     <div className={styles.imageInner2}>
                         {/* Image 2 HAD object-fit: cover in legacy */}
-                        <img src="/radical-creativity.github.io/images/gallery-2.jpg" alt="Gallery 2" className={styles.imgCover} loading="lazy" />
+                        <img src="/images/gallery-2.jpg" alt="Gallery 2" className={styles.imgCover} loading="lazy" />
                     </div>
                 </div>
                 <div className={styles.imageContainer3}>
                     <div className={styles.imageInner3}>
                         {/* Image 3 had NO object-fit in legacy */}
-                        <img src="/radical-creativity.github.io/images/gallery-3.jpg" alt="Gallery 3" className={styles.img} loading="lazy" />
+                        <img src="/images/gallery-3.jpg" alt="Gallery 3" className={styles.img} loading="lazy" />
                     </div>
                 </div>
             </div>

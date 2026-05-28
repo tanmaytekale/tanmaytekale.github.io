@@ -1,7 +1,7 @@
 .wrapper {
     width: 100%;
     /* background-color: #000; Removed to show image */
-    background-image: url('/radical-creativity.github.io/images/research-bg.jpg');
+    background-image: url('/images/research-bg.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed; /* Keeping parallax feel */

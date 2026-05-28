@@ -28,7 +28,7 @@ const ChairSection: React.FC = () => {
             <span className={styles.footerText} ref={textRef}>take a seat, relax.</span>
             <div className={styles.chair} ref={chairRef}>
                 <img
-                    src="/radical-creativity.github.io/images/chair.png"
+                    src="/images/chair.png"
                     alt="chair"
                     className={styles.chairImg}
                     loading="lazy"
