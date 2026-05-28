@@ -9,8 +9,8 @@
     justify-content: flex-start;
     align-items: center;
     width: 100%;
-    /* Use dynamic viewport height to fit mobile screen exactly */
-    height: 100dvh;
+    /* svh = small viewport height — stays fixed even when browser chrome hides/shows */
+    height: 100svh;
     min-height: 600px;
     padding: 64px 24px 0;
     gap: 15vh;

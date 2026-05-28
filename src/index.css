@@ -91,7 +91,10 @@ body {
   background-color: #000;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* Prevent rubber-band scroll snap on mobile */
+  overscroll-behavior: none;
 }
+
 
 a {
   color: inherit;

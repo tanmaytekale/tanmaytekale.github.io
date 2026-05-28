@@ -1,15 +1,18 @@
 .appWrapper {
     width: 100%;
-    min-height: auto;
+    min-height: 100%;
     background-image: url('/images/global-bg.png');
     background-position: top left;
-    background-size: cover;
+    /* Use auto so the image tiles at its natural size instead of stretching */
+    background-size: auto;
     background-repeat: repeat;
     background-blend-mode: normal;
     display: flex;
     flex-direction: column;
     align-items: center;
-    overflow: hidden;
+    /* Only hide horizontal overflow — vertical must scroll freely */
+    overflow-x: clip;
+    overflow-y: visible;
 }
 
 .contentContainer {
@@ -27,14 +30,8 @@
 }
 
 @media (max-width: 768px) {
-  .appWrapper {
-    min-height: auto;
-    background-size: cover;
-  }
   .contentContainer {
     align-items: flex-start;
     width: 100%;
-    padding: 0 1rem;
   }
 }
-
