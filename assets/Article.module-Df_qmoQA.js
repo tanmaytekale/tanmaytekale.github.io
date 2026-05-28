@@ -1,1 +1,0 @@
-const t="_articleWrapper_emuat_1",e="_nav_emuat_14",a="_homeLink_emuat_21",_="_header_emuat_30",n="_date_emuat_41",r="_title_emuat_48",o="_subtitle_emuat_57",s="_content_emuat_65",c="_paragraph_emuat_71",p={articleWrapper:t,nav:e,homeLink:a,header:_,date:n,title:r,subtitle:o,content:s,paragraph:c};export{p as s};
