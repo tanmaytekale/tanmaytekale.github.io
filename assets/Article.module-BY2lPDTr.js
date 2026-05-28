@@ -1,0 +1,1 @@
+const t="_articleWrapper_1yphu_1",e="_nav_1yphu_14",_="_homeLink_1yphu_21",a="_header_1yphu_30",n="_date_1yphu_41",p="_title_1yphu_48",r="_subtitle_1yphu_57",h="_content_1yphu_65",o="_paragraph_1yphu_71",s={articleWrapper:t,nav:e,homeLink:_,header:a,date:n,title:p,subtitle:r,content:h,paragraph:o};export{s};
