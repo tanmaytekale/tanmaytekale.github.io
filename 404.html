@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>radical creativity</title>
+    <script>
+      // GitHub Pages SPA redirect trick:
+      // When GitHub Pages returns a 404 for a deep URL (e.g. /the-emergence),
+      // this page redirects to index.html with the path encoded in the query string.
+      // The index.html then decodes it and restores the real URL via history.replaceState.
+      var l = window.location;
+      l.replace(
+        l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+        l.pathname.split('/').slice(0, 1).join('/') +
+        '/?p=' + encodeURIComponent(l.pathname + l.search) +
+        (l.hash ? '&h=' + l.hash.slice(1) : '')
+      );
+    </script>
+  </head>
+  <body></body>
+</html>
