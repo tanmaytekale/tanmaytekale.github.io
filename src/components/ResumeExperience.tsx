@@ -67,6 +67,23 @@ const experiences: Experience[] = [
         ]
     },
     {
+        title: "Cyber Security Analyst",
+        company: "GlobalShala",
+        date: "Sep 2022 — Oct 2022",
+        points: [
+            "learned the fundamentals of cybersecurity from a defense and an attacking point of view.",
+            "used various tools to analyze the vulnerabilities and cure them."
+        ]
+    },
+    {
+        title: "Digital Marketing Manager",
+        company: "LEARNOVATE ECOMMERCE",
+        date: "Nov 2021 — Dec 2021",
+        points: [
+            "learned and worked on canva, photoshop, facebook, and instagram ads."
+        ]
+    },
+    {
         title: "Freelance",
         company: "vfx  → 3d animator",
         date: "2017 — 2022",
