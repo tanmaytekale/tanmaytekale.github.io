@@ -32,7 +32,7 @@ const experiences: Experience[] = [
         date: "Jun 2026 — present",
         url: "https://www.weareeccentric.com",
         points: [
-            "working on gaussian splattings and comfyui."
+            "working on 3d gaussian splatting and comfyui."
         ]
     },
     {
