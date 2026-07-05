@@ -661,13 +661,6 @@ const Gramophone: React.FC = () => {
                         style={{ opacity: 0, pointerEvents: 'none', zIndex: 0 }}
                     />
 
-                    {/* Platter Guide Ring */}
-                    {!currentRecord && (
-                        <div className={styles.platterGuide}>
-                            <span className={styles.platterGuideText}>Place Vinyl Here</span>
-                        </div>
-                    )}
-
                     {/* ... tonearm, light, knob ... */}
                     <img
                         ref={tonearmRef}
