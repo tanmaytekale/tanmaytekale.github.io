@@ -507,6 +507,91 @@ const Gramophone: React.FC = () => {
         return () => { document.body.style.overflow = ''; };
     }, [isOpen, isMobile]);
 
+    const animateRecordToPlatter = (track: typeof TRACKS[0]) => {
+        if (!platterRef.current || !proxyVinylRef.current) return;
+
+        // Ensure proxy element is visible
+        proxyVinylRef.current.classList.add(styles.activeDrag);
+
+        const platterRect = platterRef.current.getBoundingClientRect();
+        const proxyRect = proxyVinylRef.current.getBoundingClientRect();
+
+        const startProxyCenterX = proxyRect.left + proxyRect.width / 2;
+        const startProxyCenterY = proxyRect.top + proxyRect.height / 2;
+
+        const platterCenterX = platterRect.left + platterRect.width / 2;
+        const platterCenterY = platterRect.top + platterRect.height / 2;
+
+        const destX = platterCenterX - startProxyCenterX;
+        const destY = platterCenterY - startProxyCenterY;
+
+        // Calculate target scale relative to initial proxy width
+        const targetScale = platterRect.width / (proxyVinylRef.current.offsetWidth / 1.1);
+
+        // Kill any active GSAP animations on proxy
+        gsap.killTweensOf(proxyVinylRef.current);
+
+        gsap.timeline()
+            .fromTo(proxyVinylRef.current,
+                { x: 0, y: 0, scale: 1.1, opacity: 1, rotation: 0 },
+                {
+                    x: destX,
+                    y: destY,
+                    scale: targetScale,
+                    rotation: 360,
+                    duration: 0.8,
+                    ease: "power2.inOut",
+                }
+            )
+            .to(proxyVinylRef.current, {
+                opacity: 0,
+                duration: 0.2,
+                onComplete: () => {
+                    if (proxyVinylRef.current) {
+                        proxyVinylRef.current.classList.remove(styles.activeDrag);
+                        gsap.set(proxyVinylRef.current, { x: 0, y: 0, scale: 1.1, opacity: 1, rotation: 0 });
+                    }
+
+                    setCurrentRecord(track);
+                    setIsPlaying(false);
+
+                    // Force Tonearm back to resting position
+                    if (tonearmRef.current) {
+                        const style = getComputedStyle(tonearmRef.current);
+                        const minRot = parseFloat(style.getPropertyValue('--min-rotation')) || 1;
+                        gsap.to(tonearmRef.current, {
+                            rotation: minRot,
+                            duration: 0.8,
+                            ease: "power2.out",
+                            overwrite: true
+                        });
+                    }
+
+                    // Turn off the light
+                    if (lightRef.current) {
+                        gsap.to(lightRef.current, {
+                            opacity: 0,
+                            duration: 0.2,
+                            overwrite: true
+                        });
+                    }
+                }
+            });
+    };
+
+    const handleCarouselItemClick = (track: typeof TRACKS[0]) => {
+        if (track.id === activeTrackId) {
+            animateRecordToPlatter(track);
+        } else {
+            const index = TRACKS.findIndex(t => t.id === track.id);
+            if (index !== -1 && carouselRef.current) {
+                carouselRef.current.scrollTo({
+                    left: index * 170,
+                    behavior: 'smooth'
+                });
+            }
+        }
+    };
 
     return (
         <div className={styles.container} ref={containerRef}>
@@ -528,6 +613,29 @@ const Gramophone: React.FC = () => {
 
             {/* Mobile Close Button - Moved OUTSIDE drawer for z-index reliability */}
             <div className={`${styles.drawer} ${isOpen && isMobile ? styles.mobileOpen : ''}`} ref={drawerRef}>
+                {/* Vintage Status & Now Playing Plaque */}
+                <div className={styles.statusPlaque}>
+                    <div className={styles.plaqueInner}>
+                        {!currentRecord ? (
+                            <div className={styles.plaqueText}>
+                                <span className={styles.plaqueTitle}>STATUS</span>
+                                <span className={styles.plaqueMessage}>SELECT A RECORD (CLICK OR DRAG UP)</span>
+                            </div>
+                        ) : !isPlaying ? (
+                            <div className={styles.plaqueText}>
+                                <span className={styles.plaqueTitle}>STATUS</span>
+                                <span className={styles.plaqueMessage}>READY • PLACE NEEDLE ON VINYL</span>
+                            </div>
+                        ) : (
+                            <div className={styles.plaqueTextPlaying}>
+                                <span className={styles.plaqueTitlePlaying}>NOW PLAYING</span>
+                                <span className={styles.plaqueTrackTitle}>{currentRecord.title}</span>
+                                <span className={styles.plaqueTrackArtist}>by {currentRecord.artist || 'Unknown'}</span>
+                            </div>
+                        )}
+                    </div>
+                </div>
+
                 <div className={styles.playerWrapper}>
                     {/* ... existing player assets ... */}
                     <img
@@ -553,12 +661,19 @@ const Gramophone: React.FC = () => {
                         style={{ opacity: 0, pointerEvents: 'none', zIndex: 0 }}
                     />
 
+                    {/* Platter Guide Ring */}
+                    {!currentRecord && (
+                        <div className={styles.platterGuide}>
+                            <span className={styles.platterGuideText}>Place Vinyl Here</span>
+                        </div>
+                    )}
+
                     {/* ... tonearm, light, knob ... */}
                     <img
                         ref={tonearmRef}
                         src={import.meta.env.BASE_URL + "record player assets/tonearm.png"}
                         alt="Tonearm"
-                        className={styles.tonearm}
+                        className={`${styles.tonearm} ${currentRecord && !isPlaying ? styles.pulseNeedle : ''}`}
                     />
                     <img
                         ref={lightRef}
@@ -584,6 +699,7 @@ const Gramophone: React.FC = () => {
                         <div
                             key={track.id}
                             className={`${styles.carouselItem} carousel-item ${activeTrackId === track.id ? styles.active : ''}`}
+                            onClick={() => handleCarouselItemClick(track)}
                         >
                             <VinylDisc cover={track.cover} />
                         </div>
