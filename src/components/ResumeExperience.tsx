@@ -16,10 +16,18 @@ interface Experience {
 
 const experiences: Experience[] = [
     {
+        title: "Building",
+        company: "m33",
+        date: "Jun 2026 — present",
+        url: "https://www.m33hq.com",
+        points: [
+            "A community for the world's most ambitious deeptech builders."
+        ]
+    },
+    {
         title: "Founder",
-        company: "Polycosmos",
+        company: "Stealth",
         date: "Jun 2024 — present",
-        url: "https://www.polycosmos.in",
         points: [
             "building an AI avatar creation & orchestration platform: 3D computer vision, solo.",
             "shipped VTON proof-of-concept with House of Masaba in 2024. real brand, real output.",
@@ -29,10 +37,12 @@ const experiences: Experience[] = [
     {
         title: "R&D intern",
         company: "Eccentric",
-        date: "Jun 2026 — present",
+        date: "Jun — Sept 2026",
         url: "https://www.weareeccentric.com",
         points: [
-            "working on 3d gaussian splatting and comfyui."
+            "worked on 3d gaussian splatting.",
+            "built and deployed comfyui workflows.",
+            "pipeline deployment and maintainance."
         ]
     },
     {
