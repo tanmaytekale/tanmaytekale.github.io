@@ -15,6 +15,7 @@
     padding: 64px 24px 0;
     gap: 15vh;
     position: relative;
+    z-index: 1;
     overflow: visible;
     flex-shrink: 0;
 }

@@ -15,6 +15,19 @@
     overflow-y: visible;
 }
 
+.mainContent {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    background-image: url('/images/global-bg.png');
+    background-position: top left;
+    background-size: auto;
+    background-repeat: repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .contentContainer {
     width: 100%;
     display: flex;

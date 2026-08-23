@@ -8,6 +8,7 @@ import ProjectsSection from '../components/ProjectsSection';
 import InterestsSection from '../components/InterestsSection';
 import ArticlesSection from '../components/ArticlesSection';
 import ChairSection from '../components/ChairSection';
+import styles from '../App.module.css';
 
 const Home: React.FC = () => {
     const location = useLocation();
@@ -30,13 +31,15 @@ const Home: React.FC = () => {
     return (
         <>
             <LandingHero />
-            <IntroSection />
-            <ResumeExperience />
-            <ResearchSection />
-            <ProjectsSection />
-            <InterestsSection />
-            <ArticlesSection />
-            <ChairSection />
+            <div className={styles.mainContent}>
+                <IntroSection />
+                <ResumeExperience />
+                <ResearchSection />
+                <ProjectsSection />
+                <InterestsSection />
+                <ArticlesSection />
+                <ChairSection />
+            </div>
         </>
     );
 };
